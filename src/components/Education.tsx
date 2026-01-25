@@ -1,16 +1,7 @@
 import { GraduationCap, Award } from "lucide-react";
-
-const certifications = [
-  "NPTEL Data Science for Engineers",
-  "Introduction to TensorFlow for AI/ML/DL (Coursera)",
-  "AWS & EduSkills AI/ML Internship",
-  "Accenture Nordics Software Engineering Simulation",
-  "CodeBeat Internship",
-];
-
+const certifications = ["NPTEL Data Science for Engineers", "Introduction to TensorFlow for AI/ML/DL (Coursera)", "AWS & EduSkills AI/ML Internship", "Accenture Nordics Software Engineering Simulation", "CodeBeat Internship"];
 const Education = () => {
-  return (
-    <section id="education" className="py-24 section-alt">
+  return <section id="education" className="py-24 section-alt">
       <div className="container px-6">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
@@ -31,10 +22,10 @@ const Education = () => {
               
               <div className="space-y-2">
                 <h4 className="text-lg font-semibold text-foreground">GITAM University</h4>
-                <p className="text-primary font-medium">B.Tech in CSE (AIML)</p>
+                <p className="text-primary font-medium">B.Tech in CSE AI & ML </p>
                 <p className="text-muted-foreground">CGPA: 7.90</p>
                 <p className="text-sm text-muted-foreground">Aug 2022 – May 2026</p>
-                <p className="text-sm text-muted-foreground">Visakhapatnam, AP</p>
+                <p className="text-sm text-muted-foreground">Visakhapatnam, Andhra Pradesh </p>
               </div>
             </div>
             
@@ -48,19 +39,15 @@ const Education = () => {
               </div>
               
               <ul className="space-y-3">
-                {certifications.map((cert, index) => (
-                  <li key={index} className="flex items-start gap-3">
+                {certifications.map((cert, index) => <li key={index} className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span className="text-muted-foreground">{cert}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Education;
