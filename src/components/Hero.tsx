@@ -2,7 +2,7 @@ import { ArrowRight, Github, Mail, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
-  const techStack = ["Python", "OpenCV", "Gemini API", "Flask", "Machine Learning"];
+  const techStack = ["Python", "Machine Learning"];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
