@@ -8,10 +8,6 @@ const skillCategories = [
     skills: ["TensorFlow", "PyTorch", "Scikit-Learn", "Pandas", "NumPy"],
   },
   {
-    title: "Computer Vision",
-    skills: ["OpenCV", "SSD MobileNet", "Haar Cascade", "DNN Module"],
-  },
-  {
     title: "Tools & Platforms",
     skills: ["Google Colab", "Jupyter", "VS Code", "GitHub", "AWS SageMaker"],
   },
