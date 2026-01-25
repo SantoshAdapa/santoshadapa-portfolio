@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Mail, FileText } from "lucide-react";
+import { ArrowRight, Github, Mail, FileText, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -80,10 +80,10 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Scroll indicator */}
+      {/* AI/ML themed indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animate-delay-500">
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-1">
-          <div className="w-1.5 h-3 rounded-full bg-muted-foreground/50 animate-bounce" />
+        <div className="w-12 h-12 rounded-full border-2 border-primary/30 flex items-center justify-center bg-primary/5 hover:bg-primary/10 transition-colors cursor-pointer group">
+          <Brain className="w-5 h-5 text-primary animate-pulse-soft" />
         </div>
       </div>
     </section>
