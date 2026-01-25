@@ -1,0 +1,62 @@
+const skillCategories = [
+  {
+    title: "Languages",
+    skills: ["Python", "R", "SQL", "HTML/CSS"],
+  },
+  {
+    title: "AI/ML Frameworks",
+    skills: ["TensorFlow", "PyTorch", "Scikit-Learn", "Pandas", "NumPy"],
+  },
+  {
+    title: "Computer Vision",
+    skills: ["OpenCV", "SSD MobileNet", "Haar Cascade", "DNN Module"],
+  },
+  {
+    title: "Tools & Platforms",
+    skills: ["Google Colab", "Jupyter", "VS Code", "GitHub", "AWS SageMaker"],
+  },
+  {
+    title: "Core Strengths",
+    skills: ["Problem Solving", "Critical Thinking", "Adaptability", "Communication"],
+  },
+];
+
+const Skills = () => {
+  return (
+    <section id="skills" className="py-24">
+      <div className="container px-6">
+        <div className="max-w-4xl mx-auto">
+          {/* Section header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Technical Skills</h2>
+            <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
+          </div>
+          
+          {/* Skills grid */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {skillCategories.map((category, categoryIndex) => (
+              <div
+                key={category.title}
+                className="card-elevated rounded-xl p-6"
+                style={{ animationDelay: `${categoryIndex * 100}ms` }}
+              >
+                <h3 className="font-semibold text-lg mb-4 text-foreground">
+                  {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span key={skill} className="skill-badge">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
