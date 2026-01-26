@@ -1,4 +1,5 @@
 import { Building2, Cloud } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const experiences = [
   {
@@ -28,12 +29,20 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section id="experience" className="py-24 section-alt">
       <div className="container px-6">
-        <div className="max-w-4xl mx-auto">
+        <div ref={ref} className="max-w-4xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
+          <div 
+            className={`text-center mb-16 transition-all duration-700 ${
+              isVisible 
+                ? "opacity-100 translate-y-0" 
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Experience</h2>
             <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
           </div>
@@ -43,7 +52,15 @@ const Experience = () => {
             {experiences.map((exp, index) => {
               const Icon = exp.icon;
               return (
-                <div key={index} className="relative pl-12 md:pl-16">
+                <div 
+                  key={index} 
+                  className={`relative pl-12 md:pl-16 transition-all duration-600 ${
+                    isVisible 
+                      ? "opacity-100 translate-x-0" 
+                      : "opacity-0 -translate-x-8"
+                  }`}
+                  style={{ transitionDelay: `${(index + 1) * 200}ms` }}
+                >
                   {/* Timeline line */}
                   {index < experiences.length - 1 && (
                     <div className="timeline-line" />
