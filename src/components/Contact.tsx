@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { ref, isVisible } = useScrollAnimation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -75,9 +77,15 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24">
       <div className="container px-6">
-        <div className="max-w-5xl mx-auto">
+        <div ref={ref} className="max-w-5xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
+          <div 
+            className={`text-center mb-16 transition-all duration-700 ${
+              isVisible 
+                ? "opacity-100 translate-y-0" 
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
               Open to AI/ML internships and software engineering opportunities.
@@ -87,7 +95,14 @@ const Contact = () => {
           
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact info */}
-            <div className="space-y-8">
+            <div 
+              className={`space-y-8 transition-all duration-600 ${
+                isVisible 
+                  ? "opacity-100 translate-x-0" 
+                  : "opacity-0 -translate-x-8"
+              }`}
+              style={{ transitionDelay: "150ms" }}
+            >
               <div>
                 <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -96,7 +111,7 @@ const Contact = () => {
               </div>
               
               <div className="space-y-4">
-                {socialLinks.map((link) => {
+                {socialLinks.map((link, index) => {
                   const Icon = link.icon;
                   return (
                     <a
@@ -104,7 +119,12 @@ const Contact = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-accent transition-colors group"
+                      className={`flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-accent transition-all group ${
+                        isVisible 
+                          ? "opacity-100 translate-y-0" 
+                          : "opacity-0 translate-y-4"
+                      }`}
+                      style={{ transitionDelay: `${250 + index * 100}ms` }}
                     >
                       <div className="w-10 h-10 rounded-lg bg-background flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                         <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -120,7 +140,14 @@ const Contact = () => {
             </div>
             
             {/* Contact form */}
-            <div className="card-elevated rounded-2xl p-8">
+            <div 
+              className={`card-elevated rounded-2xl p-8 transition-all duration-600 ${
+                isVisible 
+                  ? "opacity-100 translate-x-0" 
+                  : "opacity-0 translate-x-8"
+              }`}
+              style={{ transitionDelay: "300ms" }}
+            >
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-4">

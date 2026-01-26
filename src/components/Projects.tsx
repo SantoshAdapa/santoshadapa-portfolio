@@ -1,5 +1,6 @@
 import { Github, ExternalLink, Mic, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const projects = [
   {
@@ -31,12 +32,20 @@ const projects = [
 ];
 
 const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section id="projects" className="py-24">
       <div className="container px-6">
-        <div className="max-w-5xl mx-auto">
+        <div ref={ref} className="max-w-5xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-16">
+          <div 
+            className={`text-center mb-16 transition-all duration-700 ${
+              isVisible 
+                ? "opacity-100 translate-y-0" 
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Production-ready AI systems built with modern frameworks and best practices
@@ -51,7 +60,12 @@ const Projects = () => {
               return (
                 <article
                   key={project.title}
-                  className="card-elevated rounded-2xl overflow-hidden group"
+                  className={`card-elevated rounded-2xl overflow-hidden group transition-all duration-600 ${
+                    isVisible 
+                      ? "opacity-100 translate-y-0 scale-100" 
+                      : "opacity-0 translate-y-12 scale-95"
+                  }`}
+                  style={{ transitionDelay: `${(index + 1) * 150}ms` }}
                 >
                   {/* Project header */}
                   <div className="p-6 md:p-8 border-b border-border">
