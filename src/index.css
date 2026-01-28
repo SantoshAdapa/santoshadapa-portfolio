@@ -150,28 +150,16 @@
   }
 }
 
-/* Particle animation */
-@keyframes particle-float {
+/* Particle glow animation - only animates opacity/box-shadow, not transform */
+@keyframes particle-glow {
   0%, 100% {
-    transform: translateY(0) translateX(0);
     opacity: 0.6;
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px);
-    opacity: 1;
+    filter: blur(0px);
   }
   50% {
-    transform: translateY(-10px) translateX(-10px);
-    opacity: 0.8;
-  }
-  75% {
-    transform: translateY(-30px) translateX(5px);
     opacity: 1;
+    filter: blur(0.5px);
   }
-}
-
-.particle-float {
-  animation: particle-float ease-in-out infinite;
 }
 
 @layer components {

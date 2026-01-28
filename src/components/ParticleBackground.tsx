@@ -15,12 +15,12 @@ const ParticleBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Generate random particles
+    // Generate random particles with larger sizes
     const generatedParticles: Particle[] = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 4 + 2,
+      size: Math.random() * 8 + 4, // 4-12px instead of 2-6px
       duration: Math.random() * 20 + 15,
       delay: Math.random() * -20,
     }));
@@ -72,17 +72,17 @@ const ParticleBackground = () => {
         return (
           <div
             key={particle.id}
-            className="absolute rounded-full bg-primary/20 dark:bg-primary/30 particle-float"
+            className="absolute rounded-full bg-primary/35 dark:bg-primary/45"
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
               width: `${particle.size}px`,
               height: `${particle.size}px`,
-              animationDuration: `${particle.duration}s`,
-              animationDelay: `${particle.delay}s`,
               transform: `translate(${offset.x}px, ${offset.y}px)`,
               transition: "transform 0.3s ease-out",
-              boxShadow: `0 0 ${particle.size * 2}px hsl(var(--primary) / 0.3)`,
+              boxShadow: `0 0 ${particle.size * 3}px hsl(var(--primary) / 0.4)`,
+              animation: `particle-glow ${particle.duration * 0.5}s ease-in-out infinite`,
+              animationDelay: `${particle.delay}s`,
             }}
           />
         );
