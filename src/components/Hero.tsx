@@ -6,12 +6,8 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-background to-background" />
-      
-      {/* Floating decorative elements */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float animate-delay-300" />
+      {/* Gradient overlay for hero - enhances background visibility here */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50" />
       
       <div className="container relative z-10 px-6 py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center">

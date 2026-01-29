@@ -171,16 +171,33 @@
     background-clip: text;
   }
   
-  /* Card with premium shadow */
+  /* Premium card with hover effects */
   .card-elevated {
+    @apply relative overflow-hidden;
     background: var(--gradient-card);
     box-shadow: var(--shadow-card);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-elevated::before {
+    content: '';
+    @apply absolute inset-0 opacity-0;
+    transition: opacity 0.4s ease;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.03) 0%, transparent 50%);
   }
   
   .card-elevated:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover), 0 0 40px hsl(var(--primary) / 0.08);
+    transform: translateY(-4px);
+  }
+  
+  .card-elevated:hover::before {
+    @apply opacity-100;
+  }
+  
+  /* Interactive card marker for cursor */
+  .card-interactive {
+    @apply cursor-none;
   }
   
   /* Section background */
@@ -188,16 +205,18 @@
     background: var(--gradient-section);
   }
   
-  /* Skill badge */
+  /* Premium skill badge */
   .skill-badge {
-    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium;
-    @apply bg-secondary text-secondary-foreground;
-    @apply transition-all duration-200;
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium;
+    @apply bg-secondary/80 text-secondary-foreground backdrop-blur-sm;
+    @apply border border-border/50;
+    @apply transition-all duration-300;
   }
   
   .skill-badge:hover {
-    @apply bg-accent text-accent-foreground;
-    transform: translateY(-1px);
+    @apply bg-accent text-accent-foreground border-primary/30;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
+    transform: translateY(-2px);
   }
   
   /* Timeline connector */
@@ -205,14 +224,15 @@
     @apply absolute left-[19px] top-10 bottom-0 w-0.5 bg-border;
   }
   
-  /* Smooth link underline */
+  /* Premium link underline animation */
   .link-underline {
     @apply relative;
   }
   
   .link-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary;
+    @apply absolute bottom-0 left-0 w-full h-0.5 rounded-full;
+    background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(280 70% 50%) 100%);
     @apply origin-bottom-right transition-transform duration-300;
     transform: scaleX(0);
   }
@@ -220,6 +240,27 @@
   .link-underline:hover::after {
     @apply origin-bottom-left;
     transform: scaleX(1);
+  }
+  
+  /* Premium nav link */
+  .nav-link {
+    @apply relative px-4 py-2 text-sm font-medium text-muted-foreground;
+    @apply transition-all duration-300 rounded-lg;
+  }
+  
+  .nav-link::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--accent) / 0.1) 100%);
+  }
+  
+  .nav-link:hover {
+    @apply text-foreground;
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  
+  .nav-link:hover::before {
+    @apply opacity-100;
   }
 }
 
