@@ -96,30 +96,45 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Main cursor dot */}
+      {/* Main cursor dot - CRITICAL: pointer-events: none ensures no click blocking */}
       <div
         ref={cursorRef}
-        className={`fixed top-0 left-0 pointer-events-none z-[9999] transition-all duration-150 ease-out ${
+        className={`fixed top-0 left-0 z-[9999] transition-all duration-150 ease-out ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
-        style={{ willChange: "transform" }}
+        style={{ 
+          willChange: "transform",
+          pointerEvents: "none",
+        }}
       >
         {/* Inner dot */}
-        <div className="w-3 h-3 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 shadow-[0_0_10px_rgba(139,92,246,0.5)] [.cursor-hovering_&]:scale-0 transition-transform duration-200" />
+        <div 
+          className="w-3 h-3 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 shadow-[0_0_10px_rgba(139,92,246,0.5)] [.cursor-hovering_&]:scale-0 transition-transform duration-200"
+          style={{ pointerEvents: "none" }}
+        />
         
         {/* Expanding ring on hover */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 border-violet-500/60 scale-0 [.cursor-hovering_&]:scale-100 transition-all duration-200 shadow-[0_0_15px_rgba(139,92,246,0.3)]" />
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 border-violet-500/60 scale-0 [.cursor-hovering_&]:scale-100 transition-all duration-200 shadow-[0_0_15px_rgba(139,92,246,0.3)]"
+          style={{ pointerEvents: "none" }}
+        />
       </div>
       
-      {/* Trailing glow */}
+      {/* Trailing glow - CRITICAL: pointer-events: none */}
       <div
         ref={glowRef}
-        className={`fixed top-0 left-0 pointer-events-none z-[9998] transition-opacity duration-200 ${
+        className={`fixed top-0 left-0 z-[9998] transition-opacity duration-200 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
-        style={{ willChange: "transform" }}
+        style={{ 
+          willChange: "transform",
+          pointerEvents: "none",
+        }}
       >
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500/30 to-blue-500/30 blur-md [.glow-hovering_&]:w-14 [.glow-hovering_&]:h-14 [.glow-hovering_&]:from-violet-500/40 [.glow-hovering_&]:to-blue-500/40 transition-all duration-300" />
+        <div 
+          className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500/30 to-blue-500/30 blur-md [.glow-hovering_&]:w-14 [.glow-hovering_&]:h-14 [.glow-hovering_&]:from-violet-500/40 [.glow-hovering_&]:to-blue-500/40 transition-all duration-300"
+          style={{ pointerEvents: "none" }}
+        />
       </div>
     </>
   );
