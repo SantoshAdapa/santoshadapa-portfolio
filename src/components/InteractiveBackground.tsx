@@ -22,28 +22,28 @@ const InteractiveBackground = () => {
   const timeRef = useRef(0);
   const isMobile = useIsMobile();
 
-  // Soft pastel colors for oil-paint effect
+  // Soft pastel colors for oil-paint effect - more vibrant for visibility
   const colors = [
-    "rgba(236, 72, 153, 0.35)",   // Pink
-    "rgba(168, 85, 247, 0.35)",   // Purple
-    "rgba(59, 130, 246, 0.35)",   // Blue
-    "rgba(34, 197, 94, 0.30)",    // Green
-    "rgba(251, 146, 60, 0.30)",   // Orange
-    "rgba(139, 92, 246, 0.35)",   // Violet
+    "rgba(236, 72, 153, 0.5)",    // Pink - increased opacity
+    "rgba(168, 85, 247, 0.5)",    // Purple
+    "rgba(59, 130, 246, 0.5)",    // Blue
+    "rgba(34, 197, 94, 0.45)",    // Green
+    "rgba(251, 146, 60, 0.45)",   // Orange
+    "rgba(139, 92, 246, 0.5)",    // Violet
   ];
 
   const initOrbs = useCallback((width: number, height: number) => {
-    const orbCount = isMobile ? 4 : 6;
+    const orbCount = isMobile ? 4 : 7;
     orbsRef.current = Array.from({ length: orbCount }, (_, i) => ({
       x: Math.random() * width,
       y: Math.random() * height,
       targetX: Math.random() * width,
       targetY: Math.random() * height,
-      size: (isMobile ? 200 : 350) + Math.random() * (isMobile ? 150 : 250),
+      size: (isMobile ? 250 : 400) + Math.random() * (isMobile ? 200 : 300),
       color: colors[i % colors.length],
-      speed: 0.003 + Math.random() * 0.004,
+      speed: 0.005 + Math.random() * 0.006,  // Faster movement
       wobbleOffset: Math.random() * Math.PI * 2,
-      wobbleSpeed: 0.0008 + Math.random() * 0.0008,
+      wobbleSpeed: 0.001 + Math.random() * 0.001,  // Faster wobble
     }));
   }, [isMobile]);
 
@@ -102,17 +102,23 @@ const InteractiveBackground = () => {
         const displayX = orb.x + Math.cos(timeRef.current * orb.wobbleSpeed) * wobble;
         const displayY = orb.y + Math.sin(timeRef.current * orb.wobbleSpeed * 1.3) * wobble;
 
-        // Mouse interaction - gentle repulsion
+        // Mouse interaction - stronger, more visible repulsion/attraction
         if (!isMobile) {
           const dx = mouseRef.current.x - orb.x;
           const dy = mouseRef.current.y - orb.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 300;
+          const maxDist = 400;  // Larger interaction radius
           
           if (dist < maxDist && dist > 0) {
-            const force = (1 - dist / maxDist) * 40;
-            orb.x -= (dx / dist) * force * 0.02;
-            orb.y -= (dy / dist) * force * 0.02;
+            // Stronger force that's more visible
+            const force = (1 - dist / maxDist) * 80;
+            // Push orbs away from cursor with visible effect
+            orb.x -= (dx / dist) * force * 0.04;
+            orb.y -= (dy / dist) * force * 0.04;
+            
+            // Also shift the target to create flowing effect
+            orb.targetX -= (dx / dist) * force * 0.01;
+            orb.targetY -= (dy / dist) * force * 0.01;
           }
         }
 
@@ -169,8 +175,8 @@ const InteractiveBackground = () => {
         ref={canvasRef}
         className="absolute inset-0 mix-blend-normal"
         style={{ 
-          filter: "blur(60px)",
-          opacity: 0.9,
+          filter: "blur(50px)",  // Slightly less blur for more definition
+          opacity: 1,  // Full opacity for visibility
         }}
       />
       
