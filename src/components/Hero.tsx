@@ -66,7 +66,7 @@ const Hero = () => {
           </div>
           
           {/* Tech stack */}
-          <div className="flex flex-wrap items-center justify-center gap-3 animate-fade-in animate-delay-500">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-20 md:mb-16 animate-fade-in animate-delay-500">
             {techStack.map((tech, index) => (
               <span
                 key={tech}
