@@ -54,13 +54,13 @@ const Projects = () => {
           </div>
           
           {/* Projects grid */}
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 justify-items-center">
             {projects.map((project, index) => {
               const Icon = project.icon;
               return (
                 <article
                   key={project.title}
-                  className={`card-elevated card-interactive rounded-2xl overflow-hidden group transition-all duration-600 ${
+                  className={`card-elevated card-interactive rounded-2xl overflow-hidden group transition-all duration-600 w-full max-w-md md:max-w-none ${
                     isVisible 
                       ? "opacity-100 translate-y-0 scale-100" 
                       : "opacity-0 translate-y-12 scale-95"
