@@ -81,7 +81,7 @@ const Hero = () => {
       </div>
       
       {/* AI/ML themed indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animate-delay-500">
+      <div className="absolute bottom-8 inset-x-0 flex justify-center animate-fade-in animate-delay-500">
         <div className="w-12 h-12 rounded-full border-2 border-primary/30 flex items-center justify-center bg-primary/5 hover:bg-primary/10 transition-colors cursor-pointer group">
           <Brain className="w-5 h-5 text-primary animate-pulse-soft" />
         </div>
