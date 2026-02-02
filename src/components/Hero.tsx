@@ -14,9 +14,11 @@ const Hero = () => {
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-background to-background" />
       
-      {/* Floating decorative elements */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float animate-delay-300" />
+      {/* Enhanced animated gradient orbs */}
+      <div className="absolute top-10 right-10 md:top-20 md:right-20 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-40 left-10 md:left-20 w-72 md:w-[500px] h-72 md:h-[500px] bg-gradient-to-tr from-blue-500/8 to-cyan-500/8 rounded-full blur-3xl animate-float animate-delay-200" style={{ animationDuration: '8s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 md:w-[600px] h-80 md:h-[600px] bg-gradient-to-r from-primary/5 via-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse-soft" />
+      <div className="absolute top-40 left-1/4 w-48 h-48 bg-gradient-to-br from-emerald-500/8 to-teal-500/8 rounded-full blur-2xl animate-float animate-delay-400" style={{ animationDuration: '10s' }} />
       
       <div className="container relative z-10 px-6 py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center">
