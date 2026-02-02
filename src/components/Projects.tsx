@@ -1,6 +1,7 @@
 import { Github, ExternalLink, Mic, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import TechBadge from "@/components/TechBadge";
 
 const projects = [
   {
@@ -85,12 +86,7 @@ const Projects = () => {
                     {/* Tech stack */}
                     <div className="flex flex-wrap gap-2 mt-4">
                       {project.techStack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 text-xs font-medium rounded-full bg-accent text-accent-foreground"
-                        >
-                          {tech}
-                        </span>
+                        <TechBadge key={tech} tech={tech} variant="accent" />
                       ))}
                     </div>
                   </div>
