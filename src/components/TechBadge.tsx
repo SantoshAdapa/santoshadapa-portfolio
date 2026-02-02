@@ -10,7 +10,7 @@ const techIcons: Record<string, { slug: string; color: string }> = {
   // Languages
   "Python": { slug: "python", color: "#3776AB" },
   "R": { slug: "r", color: "#276DC3" },
-  "SQL": { slug: "postgresql", color: "#4169E1" },
+  "SQL": { slug: "mysql", color: "#4479A1" },
   "HTML/CSS": { slug: "html5", color: "#E34F26" },
   
   // AI/ML Frameworks
@@ -23,9 +23,9 @@ const techIcons: Record<string, { slug: string; color: string }> = {
   // Tools & Platforms
   "Google Colab": { slug: "googlecolab", color: "#F9AB00" },
   "Jupyter": { slug: "jupyter", color: "#F37626" },
-  "VS Code": { slug: "visualstudiocode", color: "#007ACC" },
+  "VS Code": { slug: "vscodium", color: "#007ACC" },
   "GitHub": { slug: "github", color: "#181717" },
-  "AWS SageMaker": { slug: "amazonaws", color: "#232F3E" },
+  "AWS SageMaker": { slug: "amazonsagemaker", color: "#A166FF" },
   
   // Project-specific
   "Gemini API": { slug: "google", color: "#4285F4" },
