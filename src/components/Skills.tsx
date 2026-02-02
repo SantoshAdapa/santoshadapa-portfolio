@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import TechBadge from "@/components/TechBadge";
 
 const skillCategories = [
   {
@@ -55,9 +56,7 @@ const Skills = () => {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
-                    <span key={skill} className="skill-badge">
-                      {skill}
-                    </span>
+                    <TechBadge key={skill} tech={skill} />
                   ))}
                 </div>
               </div>
