@@ -22,9 +22,9 @@ const techIcons: Record<string, { slug: string; color: string }> = {
   // Tools & Platforms
   "Google Colab": { slug: "googlecolab", color: "#F9AB00" },
   "Jupyter": { slug: "jupyter", color: "#F37626" },
-  "VS Code": { slug: "visualstudiocode", color: "#007ACC" },
+  "VS Code": { slug: "vscodium", color: "#2F80ED" },
   "GitHub": { slug: "github", color: "#181717" },
-  "AWS SageMaker": { slug: "amazonwebservices", color: "#FF9900" },
+  "AWS SageMaker": { slug: "amazonaws", color: "#FF9900" },
   
   // Project-specific
   "Gemini API": { slug: "google", color: "#4285F4" },
