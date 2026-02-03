@@ -62,7 +62,7 @@ const Footer = () => {
                     href={link.href}
                     target={link.href.startsWith("mailto") ? undefined : "_blank"}
                     rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent transition-all duration-200"
+                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent hover:scale-110 transition-all duration-200"
                     aria-label={link.name}
                   >
                     <Icon className="w-5 h-5" />
