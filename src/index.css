@@ -151,16 +151,52 @@
     background-clip: text;
   }
   
-  /* Card with premium shadow */
+  /* Card with premium shadow and tilt effect */
   .card-elevated {
     background: var(--gradient-card);
     box-shadow: var(--shadow-card);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
   }
   
   .card-elevated:hover {
     box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px) rotateX(2deg) rotateY(-1deg);
+  }
+  
+  /* Enhanced button interactions */
+  .btn-interactive {
+    @apply relative overflow-hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-interactive::before {
+    content: '';
+    @apply absolute inset-0 bg-primary/10 opacity-0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .btn-interactive:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.2);
+  }
+  
+  .btn-interactive:hover::before {
+    @apply opacity-100;
+  }
+  
+  .btn-interactive:active {
+    transform: translateY(0);
+  }
+  
+  /* Magnetic hover effect for icons */
+  .icon-magnetic {
+    @apply transition-transform duration-200;
+  }
+  
+  .icon-magnetic:hover {
+    transform: scale(1.1);
   }
   
   /* Section background */
