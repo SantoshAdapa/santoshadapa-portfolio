@@ -1,7 +1,6 @@
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
@@ -61,29 +60,28 @@ const TechBadge = ({ tech, variant = "default", className = "" }: TechBadgeProps
   const iconUrl = `https://cdn.simpleicons.org/${iconData.slug}/${iconData.color.replace("#", "")}`;
 
   return (
-    <TooltipProvider delayDuration={200}>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <span className={`${baseClasses} cursor-pointer transition-all hover:scale-105 ${className}`}>
-            {tech}
-          </span>
-        </TooltipTrigger>
-        <TooltipContent 
-          side="top" 
-          className="flex flex-col items-center gap-2 p-3 bg-popover border border-border"
-        >
-          <img 
-            src={iconUrl} 
-            alt={`${tech} logo`}
-            className="w-8 h-8"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
-          />
-          <span className="text-xs font-medium text-foreground">{tech}</span>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Tooltip delayDuration={100}>
+      <TooltipTrigger asChild>
+        <span className={`${baseClasses} cursor-default select-none ${className}`}>
+          {tech}
+        </span>
+      </TooltipTrigger>
+      <TooltipContent 
+        side="top" 
+        sideOffset={8}
+        className="flex flex-col items-center gap-2 p-3 bg-popover border border-border pointer-events-none"
+      >
+        <img 
+          src={iconUrl} 
+          alt={`${tech} logo`}
+          className="w-8 h-8"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        <span className="text-xs font-medium text-foreground">{tech}</span>
+      </TooltipContent>
+    </Tooltip>
   );
 };
 
