@@ -4,8 +4,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+// Local assets for logos not available on Simple Icons
+import vscodeLogo from "@/assets/vscode-logo.png";
+import sagemakerLogo from "@/assets/sagemaker-logo.png";
+
 // Map tech names to Simple Icons slugs and colors
-const techIcons: Record<string, { slug: string; color: string }> = {
+const techIcons: Record<string, { slug?: string; color: string; localIcon?: string }> = {
   // Languages
   "Python": { slug: "python", color: "#3776AB" },
   "R": { slug: "r", color: "#276DC3" },
@@ -22,9 +26,9 @@ const techIcons: Record<string, { slug: string; color: string }> = {
   // Tools & Platforms
   "Google Colab": { slug: "googlecolab", color: "#F9AB00" },
   "Jupyter": { slug: "jupyter", color: "#F37626" },
-  "VS Code": { slug: "vscodium", color: "#2F80ED" },
+  "VS Code": { localIcon: vscodeLogo, color: "#007ACC" },
   "GitHub": { slug: "github", color: "#181717" },
-  "AWS SageMaker": { slug: "amazonaws", color: "#FF9900" },
+  "AWS SageMaker": { localIcon: sagemakerLogo, color: "#9B6FD4" },
   
   // Project-specific
   "Gemini API": { slug: "google", color: "#4285F4" },
@@ -57,7 +61,9 @@ const TechBadge = ({ tech, variant = "default", className = "" }: TechBadgeProps
     );
   }
 
-  const iconUrl = `https://cdn.simpleicons.org/${iconData.slug}/${iconData.color.replace("#", "")}`;
+  const iconUrl = iconData.localIcon 
+    ? iconData.localIcon 
+    : `https://cdn.simpleicons.org/${iconData.slug}/${iconData.color.replace("#", "")}`;
 
   return (
     <Tooltip delayDuration={100}>
