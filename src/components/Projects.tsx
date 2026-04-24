@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Mic, Eye } from "lucide-react";
+import { Github, ExternalLink, Mic, Eye, BrainCircuit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import TechBadge from "@/components/TechBadge";
@@ -29,6 +29,22 @@ const projects = [
       "Modular workflow for easy deployment and reproducibility",
     ],
     github: "https://github.com/SantoshAdapa",
+  },
+  {
+    title: "AI Portfolio & Resume Optimizer",
+    icon: BrainCircuit,
+    description: "A full-stack AI platform that analyzes GitHub profiles and resumes, matches them against job descriptions, and generates personalized improvement strategies, learning roadmaps, and resource recommendations using RAG-based intelligence.",
+    techStack: ["Next.js", "FastAPI", "Gemini API", "RAG", "ChromaDB", "Docker", "AWS EC2"],
+    highlights: [
+      "Analyzes GitHub profiles and resumes to identify strengths, gaps, and improvement areas",
+      "Matches profiles against job descriptions to calculate role-fit and alignment score",
+      "Uses RAG with ChromaDB to generate contextual, personalized recommendations",
+      "Provides tailored learning roadmaps and curated resources for skill improvement",
+      "Enables comparison of multiple resumes or GitHub profiles to identify the strongest version",
+      "Full-stack architecture with scalable backend (FastAPI) and modern SaaS frontend (Next.js)",
+    ],
+    github: "https://github.com/SantoshAdapa/developer-portfolio-optimizer",
+    liveDemo: "https://santoshadapa.github.io/developer-portfolio-optimizer/",
   },
 ];
 
@@ -113,10 +129,19 @@ const Projects = () => {
                           View Code
                         </a>
                       </Button>
-                      <Button variant="ghost" size="sm" disabled>
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
+                      {project.liveDemo ? (
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button variant="ghost" size="sm" disabled>
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </article>
