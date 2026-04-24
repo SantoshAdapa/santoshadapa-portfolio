@@ -30,6 +30,14 @@ const techIcons: Record<string, { slug?: string; color: string; localIcon?: stri
   "GitHub": { slug: "github", color: "#181717" },
   "AWS SageMaker": { localIcon: sagemakerLogo, color: "#9B6FD4" },
   
+  // Full-stack & Cloud
+  "Next.js": { slug: "nextdotjs", color: "#000000" },
+  "FastAPI": { slug: "fastapi", color: "#009688" },
+  "RAG": { slug: "langchain", color: "#1C3C3C" },
+  "ChromaDB": { slug: "databricks", color: "#FF3621" },
+  "Docker": { slug: "docker", color: "#2496ED" },
+  "AWS EC2": { slug: "amazonec2", color: "#FF9900" },
+  
   // Project-specific
   "Gemini API": { slug: "google", color: "#4285F4" },
   "SpeechRecognition": { slug: "google", color: "#34A853" },
