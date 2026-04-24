@@ -5,6 +5,22 @@ import TechBadge from "@/components/TechBadge";
 
 const projects = [
   {
+    title: "AI Portfolio & Resume Optimizer",
+    icon: BrainCircuit,
+    description: "A full-stack AI platform that analyzes GitHub profiles and resumes, matches them against job descriptions, and generates personalized improvement strategies, learning roadmaps, and resource recommendations using RAG-based intelligence.",
+    techStack: ["Next.js", "FastAPI", "Gemini API", "RAG", "ChromaDB", "Docker", "AWS EC2"],
+    highlights: [
+      "Analyzes GitHub profiles and resumes to identify strengths, gaps, and improvement areas",
+      "Matches profiles against job descriptions to calculate role-fit and alignment score",
+      "Uses RAG with ChromaDB to generate contextual, personalized recommendations",
+      "Provides tailored learning roadmaps and curated resources for skill improvement",
+      "Enables comparison of multiple resumes or GitHub profiles to identify the strongest version",
+      "Full-stack architecture with scalable backend (FastAPI) and modern SaaS frontend (Next.js)",
+    ],
+    github: "https://github.com/SantoshAdapa/developer-portfolio-optimizer",
+    liveDemo: "https://santoshadapa.github.io/developer-portfolio-optimizer/",
+  },
+  {
     title: "Voice-Interactive AI Chatbot",
     icon: Mic,
     description: "A multi-modal chatbot supporting both mic and text input with dynamic persona switching, sarcasm-based dialogue, and speech-to-text integration.",
@@ -29,22 +45,6 @@ const projects = [
       "Modular workflow for easy deployment and reproducibility",
     ],
     github: "https://github.com/SantoshAdapa",
-  },
-  {
-    title: "AI Portfolio & Resume Optimizer",
-    icon: BrainCircuit,
-    description: "A full-stack AI platform that analyzes GitHub profiles and resumes, matches them against job descriptions, and generates personalized improvement strategies, learning roadmaps, and resource recommendations using RAG-based intelligence.",
-    techStack: ["Next.js", "FastAPI", "Gemini API", "RAG", "ChromaDB", "Docker", "AWS EC2"],
-    highlights: [
-      "Analyzes GitHub profiles and resumes to identify strengths, gaps, and improvement areas",
-      "Matches profiles against job descriptions to calculate role-fit and alignment score",
-      "Uses RAG with ChromaDB to generate contextual, personalized recommendations",
-      "Provides tailored learning roadmaps and curated resources for skill improvement",
-      "Enables comparison of multiple resumes or GitHub profiles to identify the strongest version",
-      "Full-stack architecture with scalable backend (FastAPI) and modern SaaS frontend (Next.js)",
-    ],
-    github: "https://github.com/SantoshAdapa/developer-portfolio-optimizer",
-    liveDemo: "https://santoshadapa.github.io/developer-portfolio-optimizer/",
   },
 ];
 
